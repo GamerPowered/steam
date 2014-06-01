@@ -14,20 +14,13 @@ $config = new Configuration(array(
 
 $adapter = new Guzzle($config);
 $adapter->setSerializer(SerializerBuilder::create()->build());
+
 $user = new User();
 $user->setAdapter($adapter);
 $mez_id = $user->resolveVanityUrl('mezzle')['response']['steamid'];
 
-$adapter = new Guzzle($config);
-$adapter->setSerializer(SerializerBuilder::create()->build());
-$user = new User();
-$user->setAdapter($adapter);
 $tetcher_id = $user->resolveVanityUrl('tetcher')['response']['steamid'];
 
-$adapter = new Guzzle($config);
-$adapter->setSerializer(SerializerBuilder::create()->build());
-$user = new User();
-$user->setAdapter($adapter);
 $emek_id = $user->resolveVanityUrl('emekcrash')['response']['steamid'];
 
 $other_id = '76561198028082641';
@@ -45,11 +38,11 @@ $player_nicks = [
     $other_id => 'Ethan'
 ];
 
+$playerService = new PlayerService();
+$playerService->setAdapter($adapter);
+
 foreach ($players as $player) {
-    $adapter = new Guzzle($config);
-    $adapter->setSerializer(SerializerBuilder::create()->build());
-    $playerService = new PlayerService();
-    $playerService->setAdapter($adapter);
+
     $result = $playerService->getOwnedGames($player, true);
     foreach ($result['response']['games'] as $game) {
 
