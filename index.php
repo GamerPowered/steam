@@ -19,12 +19,22 @@ $user = new User();
 $user->setAdapter($adapter);
 
 $mez_id = $user->resolveVanityUrl('mezzle')['response']['steamid'];
-//$tetcher_id = $user->resolveVanityUrl('tetcher')['response']['steamid'];
+$tetcher_id = $user->resolveVanityUrl('tetcher')['response']['steamid'];
 
+$players = [$mez_id, $tetcher_id];
 
 $playerService = new PlayerService();
 $playerService->setAdapter($adapter);
 
-$result = $playerService->getOwnedGames($mez_id);
+$games = [];
 
-var_dump($mez_id, $result);
+foreach ($players as $player) {
+    $result = $playerService->getOwnedGames($mez_id, true);
+    foreach ($result['response']['games'] as $game) {
+        $game_id = $game['appid'];
+        $games[$game_id] = $game;
+    }
+}
+
+
+var_dump($games);
