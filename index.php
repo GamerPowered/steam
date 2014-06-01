@@ -50,7 +50,7 @@ foreach ($players as $player) {
     $adapter->setSerializer(SerializerBuilder::create()->build());
     $playerService = new PlayerService();
     $playerService->setAdapter($adapter);
-    $result = $playerService->getOwnedGames($mez_id, true);
+    $result = $playerService->getOwnedGames($player, true);
     foreach ($result['response']['games'] as $game) {
 
         $game_id = $game['appid'];
