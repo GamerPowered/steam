@@ -24,7 +24,7 @@ $emek_id = $user->resolveVanityUrl('emekcrash')['response']['steamid'];
 
 $other_id = '76561198028082641';
 
-$players = [$mez_id, $tetcher_id, $emek_id, $other_id];
+$players = [$tetcher_id, $emek_id, $other_id];
 
 $playerService = new PlayerService();
 $playerService->setAdapter($adapter);
