@@ -1,0 +1,6 @@
+{
+   "require": {
+      "guzzlehttp/guzzle": "4.*",
+      "da-mitchell/steam-api": "dev-master"
+   }
+}
