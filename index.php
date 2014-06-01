@@ -36,5 +36,19 @@ foreach ($players as $player) {
     }
 }
 
+shuffle($games);
 
-var_dump($games);
+$random_game = array_shift($games);
+
+?>
+<html>
+<head>
+<title>Random Game Picker</title>
+</head>
+<body>
+<div style="margin: 0 auto;">
+<h2><?php echo $random_game['name']; ?></h2>
+<img src="http://media.steampowered.com/steamcommunity/public/images/apps/<?php echo $random_game['appid']; ?>/<?php echo $random_game['img_logo_url']; ?>.jpg" />
+</div>
+</body>
+</html>
