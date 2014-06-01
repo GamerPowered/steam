@@ -5,6 +5,7 @@ require_once 'vendor/autoload.php';
 use JMS\Serializer\SerializerBuilder;
 use Steam\Adapter\Guzzle;
 use Steam\Configuration;
+use Steam\Api\PlayerService;
 use Steam\Api\User;
 
 $config = new Configuration(array(
@@ -17,9 +18,13 @@ $adapter->setSerializer(SerializerBuilder::create()->build());
 $user = new User();
 $user->setAdapter($adapter);
 
-var_dump($user->resolveVanityUrl('mezzle'));
+$mez_id = $user->resolveVanityUrl('mezzle')['response']['steamid'];
+//$tetcher_id = $user->resolveVanityUrl('tetcher')['response']['steamid'];
 
 
+$playerService = new PlayerService();
+$playerService->setAdapter($adapter);
 
+$result = $playerService->getOwnedGames($mez_id);
 
-var_dump($user->resolveVanityUrl('tetcher'));
+var_dump($mez_id, $result);
