@@ -20,8 +20,11 @@ $user->setAdapter($adapter);
 
 $mez_id = $user->resolveVanityUrl('mezzle')['response']['steamid'];
 $tetcher_id = $user->resolveVanityUrl('tetcher')['response']['steamid'];
+$emek_id = $user->resolveVanityUrl('emekcrash')['response']['steamid'];
 
-$players = [$mez_id, $tetcher_id];
+$other_id = '76561198028082641';
+
+$players = [$mez_id, $tetcher_id, $emek_id, $other_id];
 
 $playerService = new PlayerService();
 $playerService->setAdapter($adapter);
