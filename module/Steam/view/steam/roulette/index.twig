@@ -17,7 +17,7 @@
 
             $(input).keydown(function(event) {
                 if (this.value) {
-                    $('#inputs').append('<input type="text" name="url[]" style="display: block" placeholder="Enter Steam URL"/>');
+                    $('#inputs').append('<br /><input type="text" name="url[]" placeholder="Enter Steam URL"/>');
                     $(this).off();
 
                     setupFields();
