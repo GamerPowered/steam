@@ -2,6 +2,7 @@
 
 namespace GamerPowered\Steam\Api;
 
+use JMS\Serializer\SerializerBuilder;
 use Steam\Api\PlayerService;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
