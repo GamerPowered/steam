@@ -33,10 +33,12 @@ class RouletteController extends AbstractActionController
         $user = $this->getServiceLocator()->get('\GamerPowered\Steam\Api\User');
 
         foreach ($to_resolve as $resolvee) {
-            $player_id = $user->resolveVanityUrl($resolvee);
+            if (!is_null($resolvee)) {
+                $player_id = $user->resolveVanityUrl($resolvee);
 
-            if (!is_null($player_id)) {
-                $players[] = $player_id;
+                if (!is_null($player_id)) {
+                    $players[] = $player_id;
+                }
             }
         }
 
