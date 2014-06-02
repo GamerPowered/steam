@@ -1,11 +1,32 @@
-<html>
-<head>
-    <title>Random Game Picker</title>
-</head>
-<body>
-<div style="margin: 0 auto;">
+{%  if game %}
     <h2>{{ game.name }}</h2>
     <img src="http://media.steampowered.com/steamcommunity/public/images/apps/{{ game.appid }}/{{ game.img_logo_url }}.jpg" />
-</div>
-</body>
-</html>
+
+{% else %}
+
+    <form method="get" action="/" id="urls">
+        <div id="inputs">
+        <input type="text" name="url[]" />
+        </div>
+        <input type="submit" />
+    </form>
+
+    <script>
+        function setupFields() {
+            var input = $('#urls :text:last');
+
+            $(input).change(function(event) {
+                if (this.value) {
+                    $('#inputs').append('<input type="text" name="url[]" />');
+                    $(this).off();
+
+                    setupFields();
+                }
+            })
+
+        }
+
+        $(document).ready(setupFields());
+    </script>
+
+{% endif %}

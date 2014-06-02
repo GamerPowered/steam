@@ -21,29 +21,26 @@ class RouletteController extends AbstractActionController
 {
     public function indexAction()
     {
+        $to_resolve = $this->params()->fromQuery('url');
+
+        if (empty($to_resolve)) {
+            return;
+        }
+
+        $players = [];
+
         /** @var \GamerPowered\Steam\Api\User $user */
         $user = $this->getServiceLocator()->get('\GamerPowered\Steam\Api\User');
 
-        $mez_id = $user->resolveVanityUrl('mezzle');
+        foreach ($to_resolve as $resolvee) {
+            $player_id = $user->resolveVanityUrl($to_resolve);
 
-        $tetcher_id = $user->resolveVanityUrl('tetcher');
-
-        $emek_id = $user->resolveVanityUrl('emekcrash');
-
-        $other_id = $user->resolveVanityUrl('76561198028082641');
-
-        $players = [$mez_id, $tetcher_id, $emek_id, $other_id];
+            if (!is_null($player_id)) {
+                $players[] = $player_id;
+            }
+        }
 
         $games = [];
-
-        $player_games = [];
-
-        $player_nicks = [
-            $mez_id => 'Mez',
-            $tetcher_id => 'Tetcher',
-            $emek_id => 'Eman',
-            $other_id => 'Ethan'
-        ];
 
         /** @var \Steam\Api\PlayerService $user */
         $playerService = $this->getServiceLocator()->get('\GamerPowered\Steam\Api\SteamPlayer');
