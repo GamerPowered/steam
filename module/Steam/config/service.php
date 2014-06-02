@@ -7,8 +7,9 @@ return [
         '\GamerPowered\Steam\Roulette\RouletteController' => '\GamerPowered\Steam\Roulette\RouletteController',
     ],
     'factories' => [
+        'SteamConfig' => '\GamerPowered\Steam\Api\ConfigFactory',
         '\Steam\Api\User' => '\GamerPowered\Steam\Api\SteamUserFactory',
         '\GamerPowered\Steam\Api\User' => '\GamerPowered\Steam\Api\UserFactory',
-        '\GamerPowered\Steam\Api\SteamPlayer' => '\GamerPowered\Steam\Api\SteamPlayerFactory'
+        '\GamerPowered\Steam\Api\SteamPlayer' => '\GamerPowered\Steam\Api\SteamPlayerFactory',
     ],
 ];
