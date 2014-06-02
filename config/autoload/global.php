@@ -8,4 +8,7 @@ return [
         'display_not_found_reason' => true,
         'display_exceptions' => true,
     ],
+    'zfctwig' => [
+        'disable_zf_model' => false,
+    ],
 ];
