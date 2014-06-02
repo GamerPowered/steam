@@ -2,6 +2,6 @@
 
 return [
     'invokables' => [
-        '\GamerPowered\Roulette\RouletteController' => '\GamerPowered\Roulette\RouletteController',
+        '\GamerPowered\Steam\Roulette\RouletteController' => '\GamerPowered\Steam\Roulette\RouletteController',
     ],
 ];
