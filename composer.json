@@ -1,8 +1,9 @@
 {
     "require": {
-        "guzzlehttp/guzzle": "4.*",
+        "ext-apcu": "*",
         "da-mitchell/steam-api": "dev-master",
-        "zendframework/zendframework": "~2.3"
+        "zendframework/zendframework": "~2.3",
+        "zf-commons/zfc-twig": "dev-master"
     },
     "require-dev": {
         "heroku/heroku-buildpack-php": "*"
