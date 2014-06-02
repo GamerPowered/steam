@@ -6,7 +6,7 @@
 
     <form method="get" action="/" id="urls">
         <div id="inputs">
-        <input type="text" name="url[]" style="display: block"/>
+        <input type="text" name="url[]" style="display: block" placeholder="Enter Steam URL"/>
         </div>
         <input type="submit" />
     </form>
@@ -15,9 +15,9 @@
         function setupFields() {
             var input = $('#urls :text:last');
 
-            $(input).change(function(event) {
+            $(input).keydown(function(event) {
                 if (this.value) {
-                    $('#inputs').append('<input type="text" name="url[]" style="display: block"/>');
+                    $('#inputs').append('<input type="text" name="url[]" style="display: block" placeholder="Enter Steam URL"/>');
                     $(this).off();
 
                     setupFields();
