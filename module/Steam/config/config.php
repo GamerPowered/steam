@@ -3,7 +3,7 @@
 return [
     'controllers' => [
         'invokables' => [
-            'roulette' => '\GamerPowered\Roulette\RouletteController'
+            'roulette' => '\GamerPowered\Steam\Roulette\RouletteController'
         ]
     ],
     'router' => include __DIR__ . '/router.php',

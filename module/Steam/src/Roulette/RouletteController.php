@@ -7,6 +7,7 @@ use Steam\Adapter\Guzzle;
 use Steam\Api\PlayerService;
 use Steam\Api\User;
 use Steam\Configuration;
+use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
 /**
@@ -16,7 +17,7 @@ use Zend\View\Model\ViewModel;
  * @author    Protec Innovations <support@protecinnovations.co.uk>
  * @copyright 2014 Protec Innovations
  */
-class RouletteController
+class RouletteController extends AbstractActionController
 {
     public function indexAction()
     {
