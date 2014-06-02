@@ -5,7 +5,7 @@ return [
         'steamKey' => getenv('STEAM_API_KEY'),
     ],
     'view_manager' => [
-        'display_not_found_reason' => true,
+        'display_not_found_reason' => false,
         'display_exceptions' => false,
     ],
     'zfctwig' => [
