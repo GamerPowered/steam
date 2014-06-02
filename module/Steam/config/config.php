@@ -6,6 +6,7 @@ return [
             'roulette' => '\GamerPowered\Roulette\RouletteController'
         ]
     ],
+    'router' => include __DIR__ . '/router.php',
     'view_manager' => [
         'doctype' => 'HTML5',
         'not_found_template' => 'error/404',
