@@ -1,6 +1,17 @@
 {
-   "require": {
-      "guzzlehttp/guzzle": "4.*",
-      "da-mitchell/steam-api": "dev-master"
-   }
+    "require": {
+        "guzzlehttp/guzzle": "4.*",
+        "da-mitchell/steam-api": "dev-master",
+        "zendframework/zendframework": "~2.3"
+    },
+    "require-dev": {
+        "heroku/heroku-buildpack-php": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "GamerPowered\\Steam\\": [
+                "module/Steam/src"
+            ]
+        }
+    }
 }
