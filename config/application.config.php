@@ -2,6 +2,7 @@
 
 return [
     'modules' => [
+        'ZfcTwig',
         'GamerPowered\Steam',
     ],
 ];

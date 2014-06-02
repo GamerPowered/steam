@@ -6,5 +6,4 @@ return [
             'roulette' => '\GamerPowered\Roulette\RouletteController'
         ]
     ],
-    ''
 ];
