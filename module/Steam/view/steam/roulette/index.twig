@@ -1,12 +1,12 @@
 {%  if game %}
     <h2>{{ game.name }}</h2>
-    <img src="http://media.steampowered.com/steamcommunity/public/images/apps/{{ game.appid }}/{{ game.img_logo_url }}.jpg" />
+    <img src="http://media.steampowered.com/steamcommunity/public/images/apps/{{ game.appid }}/{{ game.img_logo_url }}.jpg" width="184" height="69" />
 
 {% else %}
 
     <form method="get" action="/" id="urls">
         <div id="inputs">
-        <input type="text" name="url[]" style="display: block" placeholder="Enter Steam URL"/>
+        <input type="text" name="url[]" placeholder="Enter Steam URL"/>
         </div>
         <input type="submit" />
     </form>
