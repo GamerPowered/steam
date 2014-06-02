@@ -24,7 +24,9 @@ class ConfigFactory implements FactoryInterface
     {
         $config = $serviceLocator->get('config')['steam'];
 
-        var_dump($serviceLocator->get('config')); die();
+        if (is_null($config)) {
+            var_dump($serviceLocator->get('config')); die();
+        }
 
         $steam_config = new Configuration($config);
 
