@@ -37,7 +37,7 @@ class Module implements ServiceProviderInterface
 
     public function onBootstrap(MvcEvent $event)
     {
-        $app = $e->getParam('application');
+        $app = $event->getParam('application');
         $sm = $app->getServiceManager();
 
         $event_manager = $sm->get('EventManager');
