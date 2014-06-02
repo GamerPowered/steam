@@ -30,7 +30,8 @@
 
         $(document).ready(function() {
             $('#urls').submit(function() {
-                $(this).find('input:text[value=""]').remove();
+                $(this).find('input:text').filter(function() { return this.value == ""; }).remove();
+
             })
         })
     </script>
