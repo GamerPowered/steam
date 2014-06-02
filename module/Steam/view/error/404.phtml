@@ -46,8 +46,6 @@
 
 <?php endif ?>
 
-<?php if (isset($this->display_exceptions) && $this->display_exceptions): ?>
-
     <?php if(isset($this->exception) && $this->exception instanceof Exception): ?>
         <hr/>
         <h2><?php echo $this->translate('Additional information') ?>:</h2>
@@ -104,4 +102,3 @@
 
     <?php endif ?>
 
-<?php endif ?>
