@@ -21,22 +21,16 @@ class RouletteController extends AbstractActionController
 {
     public function indexAction()
     {
-        $config = new Configuration(array(
-            'steamKey' => 'B05AC3BD9B29681761D2DA83263F2D1E',
-        ));
+        /** @var \GamerPowered\Steam\Api\User $user */
+        $user = $this->getServiceLocator()->get('\GamerPowered\Steam\Api\User');
 
-        $adapter = new Guzzle($config);
-        $adapter->setSerializer(SerializerBuilder::create()->build());
+        $mez_id = $user->resolveVanityUrl('mezzle');
 
-        $user = new User();
-        $user->setAdapter($adapter);
-        $mez_id = $user->resolveVanityUrl('mezzle')['response']['steamid'];
+        $tetcher_id = $user->resolveVanityUrl('tetcher');
 
-        $tetcher_id = $user->resolveVanityUrl('tetcher')['response']['steamid'];
+        $emek_id = $user->resolveVanityUrl('emekcrash');
 
-        $emek_id = $user->resolveVanityUrl('emekcrash')['response']['steamid'];
-
-        $other_id = '76561198028082641';
+        $other_id = $user->resolveVanityUrl('76561198028082641');
 
         $players = [$mez_id, $tetcher_id, $emek_id, $other_id];
 
@@ -51,8 +45,8 @@ class RouletteController extends AbstractActionController
             $other_id => 'Ethan'
         ];
 
-        $playerService = new PlayerService();
-        $playerService->setAdapter($adapter);
+        /** @var \Steam\Api\PlayerService $user */
+        $playerService = $this->getServiceLocator()->get('\GamerPowered\Steam\Api\SteamPlayer');
 
         foreach ($players as $player) {
 
