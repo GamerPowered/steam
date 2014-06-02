@@ -14,8 +14,8 @@ use Zend\View\Model\ViewModel;
  * RouletteController
  *
  * @package   GamerPowered\Steam\Roulette
- * @author    Protec Innovations <support@protecinnovations.co.uk>
- * @copyright 2014 Protec Innovations
+ * @author    Martin Meredith <mez@gamerpowered.co.uk>
+ * @copyright 2014 Martin Meredith
  */
 class RouletteController extends AbstractActionController
 {
