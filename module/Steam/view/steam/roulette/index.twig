@@ -27,6 +27,12 @@
         }
 
         $(document).ready(setupFields());
+
+        $(document).ready(function() {
+            $('#urls').submit(function() {
+                $(this).find('input:text[value=""]').remove();
+            })
+        })
     </script>
 
 {% endif %}
