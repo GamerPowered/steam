@@ -26,7 +26,7 @@ $(document).ready(function() {
             return $(elem).val();
         }).get();
 
-        $.get('/json/show', {'urls': urls}, function(data)
+        $.get('/json/show', {'url': urls}, function(data)
         {
             var games_div = $('#games');
             games_div.empty();
