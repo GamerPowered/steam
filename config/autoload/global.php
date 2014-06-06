@@ -6,7 +6,7 @@ return [
     ],
     'view_manager' => [
         'display_not_found_reason' => false,
-        'display_exceptions' => true,
+        'display_exceptions' => getenv('DISPLAY_EXCEPTIONS'),
     ],
     'zfctwig' => [
         'disable_zf_model' => false,
