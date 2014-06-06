@@ -11,30 +11,5 @@
         </div>
         <input type="submit" />
     </form>
-
-    <script>
-        function setupFields() {
-            var input = $('#urls :text:last');
-
-            $(input).keydown(function(event) {
-                if (this.value) {
-                    $('#inputs').append('<br /><input type="text" name="url[]" placeholder="Enter Steam URL"/>');
-                    $(this).off();
-
-                    setupFields();
-                }
-            })
-
-        }
-
-        $(document).ready(setupFields());
-
-        $(document).ready(function() {
-            $('#urls').submit(function() {
-                $(this).find('input:text').filter(function() { return this.value == ""; }).remove();
-
-            })
-        })
-    </script>
-
 {% endif %}
+<script src="/js/roulette.js"></script>
