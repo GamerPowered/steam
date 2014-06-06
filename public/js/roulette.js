@@ -41,6 +41,8 @@ function prepLoadImages()
                     '<img src="http://media.steampowered.com/steamcommunity/public/images/apps/' + data.games[i].appid + '/' + data.games[i].img_logo_url + '.jpg"/>'
                 )
             }
+            games_div.show();
+            loading_div.hide();
         });
     });
 }
