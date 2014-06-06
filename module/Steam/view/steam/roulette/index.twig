@@ -1,6 +1,6 @@
 {%  if game %}
     <h1>{{ game.name }}</h1>
-    {% if game.img_logo_url %} }}
+    {% if game.img_logo_url %}
         <a href="steam://run/{{ game.appid }}">
             <img src="http://media.steampowered.com/steamcommunity/public/images/apps/{{ game.appid }}/{{ game.img_logo_url }}.jpg" width="368" height="138" />
         </a>
