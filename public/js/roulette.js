@@ -34,10 +34,12 @@ function prepLoadImages()
         if (urls.join() != self.old_urls) {
             self.old_urls = urls.join();
             var games_div = $('#games');
-            games_div.hide();
 
             loading_div = $('#loading');
-            loading_div.show();
+
+            games_div.fadeOut(400, function() {
+                loading_div.show();
+            });
 
             $.get('/json/show', {'url': urls}, function(data)
             {
@@ -66,8 +68,9 @@ function prepLoadImages()
                 }
 
                 games_div.waitForImages(function() {
-                    games_div.fadeIn();
-                    loading_div.hide();
+                    loading_div.fadeOut(400, function() {
+                        games_div.fadeIn();
+                    });
                 });
             });
         }
