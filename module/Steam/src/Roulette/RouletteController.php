@@ -47,7 +47,7 @@ class RouletteController extends AbstractActionController
         /** @var \Steam\Api\PlayerService $playerService */
         $playerService = $this->getServiceLocator()->get('\GamerPowered\Steam\Api\SteamPlayer');
 
-        var_dump($user->getPlayerSummaries($players));
+        $player_details = $user->getPlayerSummaries($players);
 
         foreach ($players as $player) {
 
@@ -68,6 +68,7 @@ class RouletteController extends AbstractActionController
         $view_model = new ViewModel();
 
         $view_model->setVariable('game', $random_game);
+        $view_model->setVariable('players', $player_games[$game['appid']]);
 
         return $view_model;
     }

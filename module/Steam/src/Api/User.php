@@ -60,6 +60,12 @@ class User
 
     public function getPlayerSummaries(array $ids)
     {
+        $players = [];
+
+        foreach($this->getSteamApi()->getPlayerSummaries($ids)['response']['players'] as $player) {
+            $players[$player['steamid']] = $player;
+        }
+
         return $this->getSteamApi()->getPlayerSummaries($ids)['response'];
     }
 
