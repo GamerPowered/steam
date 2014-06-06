@@ -46,22 +46,29 @@ function prepLoadImages()
                 for (var i = 0; i < data.games.length; i++) {
                     var img = undefined;
 
+                    var width = 184;
+                    var height = 69;
+
                     if (data.games[i].img_logo_url != '') {
-                        var img = data.games[i].img_logo_url;
-                    } else if (data.games[i].img_icon_url != '') {
-                        var img = data.games[i].img_icon_url;
+                        img = data.games[i].img_logo_url;
+                    } else if (data.games[i].img_icon_url != undefined) {
+                        width = 69;
+                        img = data.games[i].img_icon_url;
                     }
 
                     if (img != undefined) {
                         var appid = data.games[i].appid
 
                         games_div.append(
-                            '<img src="http://media.steampowered.com/steamcommunity/public/images/apps/' + appid + '/' + img + '.jpg"/>'
+                            '<img src="http://media.steampowered.com/steamcommunity/public/images/apps/' + appid + '/' + img + '.jpg" width="' + width + '" height="' + height + '/>'
                         )
                     }
                 }
-                games_div.show();
-                loading_div.hide();
+
+                games_div.waitForImages(function() {
+                    games_div.show();
+                    loading_div.hide();
+                });
             });
         }
     });
