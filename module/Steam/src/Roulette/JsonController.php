@@ -38,9 +38,7 @@ class JsonController extends AbstractActionController
 
             $result = $playerService->getOwnedGames($player, true);
             foreach ($result['response']['games'] as $game) {
-
-                $game_id = $game['appid'];
-                $games[$game_id] = $game;
+                $games[] = $game;
             }
         }
 
