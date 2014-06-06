@@ -48,7 +48,7 @@ function prepLoadImages()
 
                     if (data.games[i].img_logo_url != undefined) {
                         var img = data.games[i].img_logo_url;
-                    } else if (data.games[i].img_icon_url != undefined {
+                    } else if (data.games[i].img_icon_url != undefined) {
                         var img = data.games[i].img_icon_url;
                     }
 
