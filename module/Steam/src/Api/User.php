@@ -63,7 +63,8 @@ class User
         $players = [];
 
         foreach($this->getSteamApi()->getPlayerSummaries($ids)['response']['players'] as $player) {
-            $players[$player['steamid']] = $player;
+            $steamid = strval($player['steamid']);
+            $players[$steamid] = $player;
         }
 
         return $players;

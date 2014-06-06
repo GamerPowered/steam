@@ -51,9 +51,6 @@ class RouletteController extends AbstractActionController
 
         $player_games = [];
 
-        var_dump($player_details); die();
-
-
         foreach ($players as $player) {
 
             $result = $playerService->getOwnedGames($player, true);
@@ -61,10 +58,12 @@ class RouletteController extends AbstractActionController
 
                 $game_id = $game['appid'];
 
-                $player_games[$game_id][] = $player_details[$player];
+                $player_games[$game_id][] = $player_details[strval($player)];
                 $games[$game_id] = $game;
             }
         }
+
+        var_dump($player_games); die();
 
         shuffle($games);
 
