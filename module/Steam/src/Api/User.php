@@ -58,4 +58,9 @@ class User
         return $this->getSteamApi()->resolveVanityUrl($to_resolve)['response']['steamid'];
     }
 
+    public function getPlayerSummaries(array $ids)
+    {
+        return $this->getSteamApi()->getPlayerSummaries($ids)['response'];
+    }
+
 }
