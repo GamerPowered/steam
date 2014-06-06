@@ -13,7 +13,8 @@ function setupFields() {
 }
 
 function prepLoadImages()
-{ var urls_div = $("#urls");
+{
+    var urls_div = $("#urls");
     urls_div.find(':text').off();
 
     urls_div.submit(function() {
@@ -21,13 +22,18 @@ function prepLoadImages()
     });
 
     urls_div.find(':text').blur(function() {
+        var games_div = $('#games');
+        games_div.hide();
+
+        loading_div = $('#loading');
+        loading_div.show();
+
         var urls = $("#urls").find(":text").map(function(idx, elem) {
             return $(elem).val();
         }).get();
 
         $.get('/json/show', {'url': urls}, function(data)
         {
-            var games_div = $('#games');
             games_div.empty();
 
             for (var i = 0; i < data.games.length; i++) {
