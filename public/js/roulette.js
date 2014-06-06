@@ -33,7 +33,7 @@ $(document).ready(function() {
 
             for (var i = 0; i < data.games.length; i++) {
                 $('#games').append(
-                    '<img src="http://media.steampowered.com/steamcommunity/public/images/apps/' + data.games[i].appid + '/' + data.games[i].img_logo_url' + '.jpg"/>'
+                    '<img src="http://media.steampowered.com/steamcommunity/public/images/apps/' + data.games[i].appid + '/' + data.games[i].img_logo_url + '.jpg"/>'
                 )
             }
         });
