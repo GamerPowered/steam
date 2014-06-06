@@ -1,4 +1,6 @@
 function setupFields() {
+    prepLoadImages();
+
     var input = $('#urls').find(' :text:last');
 
     $(input).keydown(function(event) {
@@ -12,11 +14,11 @@ function setupFields() {
 
 }
 
-$(document).ready(function() {
-
-    setupFields();
-
+function prepLoadImages()
+{
     var urls_div = $("#urls");
+    urls_div.find(':text').off();
+
     urls_div.submit(function() {
         $(this).find('input:text').filter(function() { return this.value == ""; }).remove();
     });
@@ -38,4 +40,8 @@ $(document).ready(function() {
             }
         });
     });
+}
+
+$(document).ready(function() {
+    setupFields();
 });
