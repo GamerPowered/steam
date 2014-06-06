@@ -27,6 +27,10 @@ function prepLoadImages()
 
     urls_div.find(':text').blur(function() {
 
+        var urls = $("#urls").find(":text").map(function(idx, elem) {
+            return $(elem).val();
+        }).get();
+
         if (urls.join() != self.old_urls) {
             self.old_urls = urls.join();
             var games_div = $('#games');
@@ -34,10 +38,6 @@ function prepLoadImages()
 
             loading_div = $('#loading');
             loading_div.show();
-
-            var urls = $("#urls").find(":text").map(function(idx, elem) {
-                return $(elem).val();
-            }).get();
 
             $.get('/json/show', {'url': urls}, function(data)
             {
