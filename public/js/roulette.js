@@ -14,6 +14,10 @@ function setupFields() {
 
 function prepLoadImages()
 {
+    if (self.old_urls == undefined) {
+        self.old_urls = '';
+    }
+
     var urls_div = $("#urls");
     urls_div.find(':text').off();
 
@@ -32,18 +36,30 @@ function prepLoadImages()
             return $(elem).val();
         }).get();
 
-        $.get('/json/show', {'url': urls}, function(data)
-        {
-            games_div.empty();
+        if (urls.join() != self.old_urls) {
+            self.old_urls = urls.join();
 
-            for (var i = 0; i < data.games.length; i++) {
-                games_div.append(
-                    '<img src="http://media.steampowered.com/steamcommunity/public/images/apps/' + data.games[i].appid + '/' + data.games[i].img_logo_url + '.jpg"/>'
-                )
-            }
-            games_div.show();
-            loading_div.hide();
-        });
+            $.get('/json/show', {'url': urls}, function(data)
+            {
+                games_div.empty();
+
+                for (var i = 0; i < data.games.length; i++) {
+                    if (data.games[i].img_logo_url == undefined) {
+                        var img = data.games[i].img_icon_url;
+                    } else {
+                        var img = data.games[i].img_logo_url;
+                    }
+
+                    var appid = data.games[i].appid
+
+                    games_div.append(
+                        '<img src="http://media.steampowered.com/steamcommunity/public/images/apps/' + appid + '/' + img + '.jpg"/>'
+                    )
+                }
+                games_div.show();
+                loading_div.hide();
+            });
+        }
     });
 }
 
