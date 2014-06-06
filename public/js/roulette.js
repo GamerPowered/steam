@@ -21,7 +21,7 @@ $(document).ready(function() {
         $(this).find('input:text').filter(function() { return this.value == ""; }).remove();
     });
 
-    urls_div.find(' :text').blur(function() {
+    urls_div.find(':text').blur(function() {
         var urls = $("#urls").find(":text").map(function(idx, elem) {
             return $(elem).val();
         }).get();
