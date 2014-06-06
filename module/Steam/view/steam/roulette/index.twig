@@ -1,7 +1,8 @@
 {%  if game %}
     <h1>{{ game.name }}</h1>
     <img src="http://media.steampowered.com/steamcommunity/public/images/apps/{{ game.appid }}/{{ game.img_logo_url }}.jpg" width="368" height="138" />
-
+<br />
+    <br />
     {% for player in players %}
         <img src="{{ player.avatar }}" /> {{ player.personaname }}<br/>
     {% endfor %}
