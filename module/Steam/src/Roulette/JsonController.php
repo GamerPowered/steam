@@ -44,6 +44,8 @@ class JsonController extends AbstractActionController
             }
         }
 
+        ksort($games);
+
         $view_model = new JsonModel();
 
         $view_model->setVariable('games', array_values($games));
