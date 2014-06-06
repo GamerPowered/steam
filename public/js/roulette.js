@@ -61,9 +61,22 @@ function prepLoadImages()
 
                     if (img != undefined) {
                         var appid = data.games[i].appid
+                        var name = data.games[i].name
 
                         games_div.append(
-                            '<img src="http://media.steampowered.com/steamcommunity/public/images/apps/' + appid + '/' + img + '.jpg" width="' + width + '" height="' + height + '" />'
+                            '<img src="http://media.steampowered.com/steamcommunity/public/images/apps/' +
+                            appid +
+                            '/' +
+                            img +
+                            '.jpg" width="' +
+                            width +
+                            '" height="' +
+                            height +
+                            '" alt="' +
+                            name +
+                            '" title="' +
+                            name +
+                            '" />'
                         )
                         game_count++;
                     }
