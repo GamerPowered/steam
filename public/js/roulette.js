@@ -66,7 +66,7 @@ function prepLoadImages()
                 }
 
                 games_div.waitForImages(function() {
-                    games_div.show();
+                    games_div.fadeIn();
                     loading_div.hide();
                 });
             });
