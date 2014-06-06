@@ -3,7 +3,8 @@
 return [
     'controllers' => [
         'invokables' => [
-            'roulette' => '\GamerPowered\Steam\Roulette\RouletteController'
+            'json' => '\GamerPowered\Steam\Roulette\JsonController',
+            'roulette' => '\GamerPowered\Steam\Roulette\RouletteController',
         ]
     ],
     'router' => include __DIR__ . '/router.php',
@@ -21,5 +22,8 @@ return [
         'template_path_stack' => [
             realpath(__DIR__ . '/../view'),
         ],
+        'strategies' => [
+            'ViewJsonStrategy'
+        ]
     ],
 ];

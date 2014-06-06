@@ -12,5 +12,14 @@ return [
                 ],
             ],
         ],
+        'json' => [
+            'type' => 'Segment',
+            'options' => [
+                'route' => '/json/:action',
+                'defaults' => [
+                    'controller' => 'json'
+                ],
+            ],
+        ],
     ],
 ];
