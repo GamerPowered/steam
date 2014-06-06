@@ -1,6 +1,10 @@
 {%  if game %}
     <h1>{{ game.name }}</h1>
-    <img src="http://media.steampowered.com/steamcommunity/public/images/apps/{{ game.appid }}/{{ game.img_logo_url }}.jpg" width="368" height="138" />
+    {% if game.img_logo_url %} }}
+        <img src="http://media.steampowered.com/steamcommunity/public/images/apps/{{ game.appid }}/{{ game.img_logo_url }}.jpg" width="368" height="138" />
+        {% elseif game.img_icon_url %}
+            <img src="http://media.steampowered.com/steamcommunity/public/images/apps/{{ game.appid }}/{{ game.img_icon_url }}.jpg" width="138" height="138" />
+        {% endif %}
 <br />
     <br />
     {% for player in players %}
