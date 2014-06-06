@@ -66,7 +66,7 @@ class User
             $players[$player['steamid']] = $player;
         }
 
-        return $this->getSteamApi()->getPlayerSummaries($ids)['response'];
+        return $players;
     }
 
 }
