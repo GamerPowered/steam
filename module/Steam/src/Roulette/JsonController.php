@@ -44,7 +44,12 @@ class JsonController extends AbstractActionController
             }
         }
 
-        ksort($games);
+        usort(
+            $games,
+            function($a, $b) {
+                return strcasecmp($a, $b);
+            }
+        );
 
         $view_model = new JsonModel();
 
