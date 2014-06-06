@@ -51,6 +51,9 @@ class RouletteController extends AbstractActionController
 
         $player_games = [];
 
+        var_dump($player_details); die();
+
+
         foreach ($players as $player) {
 
             $result = $playerService->getOwnedGames($player, true);
