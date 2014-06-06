@@ -38,13 +38,15 @@ class JsonController extends AbstractActionController
 
             $result = $playerService->getOwnedGames($player, true);
             foreach ($result['response']['games'] as $game) {
-                $games[] = $game;
+
+                $game_id = $game['appid'];
+                $games[$game_id] = $game;
             }
         }
 
         $view_model = new JsonModel();
 
-        $view_model->setVariable('games', $games);
+        $view_model->setVariable('games', array_values($games));
 
         return $view_model;
     }
