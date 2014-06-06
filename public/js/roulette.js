@@ -14,7 +14,7 @@ function setupFields() {
 
 $(document).ready(function() {
 
-    setupFields()
+    setupFields();
 
     var urls_div = $("#urls");
     urls_div.submit(function() {
@@ -32,7 +32,7 @@ $(document).ready(function() {
             games_div.empty();
 
             for (var i = 0; i < data.games.length; i++) {
-                $('#games').append(
+                games_div.append(
                     '<img src="http://media.steampowered.com/steamcommunity/public/images/apps/' + data.games[i].appid + '/' + data.games[i].img_logo_url + '.jpg"/>'
                 )
             }
