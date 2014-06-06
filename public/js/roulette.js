@@ -51,7 +51,7 @@ function prepLoadImages()
 
                     if (data.games[i].img_logo_url != '') {
                         img = data.games[i].img_logo_url;
-                    } else if (data.games[i].img_icon_url != undefined) {
+                    } else if (data.games[i].img_icon_url != '') {
                         width = 69;
                         img = data.games[i].img_icon_url;
                     }
@@ -65,10 +65,10 @@ function prepLoadImages()
                     }
                 }
 
-                games_div.waitForImages(function() {
+                //games_div.waitForImages(function() {
                     games_div.show();
                     loading_div.hide();
-                });
+                //});
             });
         }
     });
