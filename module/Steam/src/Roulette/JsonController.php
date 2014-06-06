@@ -47,7 +47,7 @@ class JsonController extends AbstractActionController
         usort(
             $games,
             function($a, $b) {
-                return strcasecmp($a, $b);
+                return strcasecmp($a['name'], $b['name']);
             }
         );
 
