@@ -63,8 +63,6 @@ class RouletteController extends AbstractActionController
             }
         }
 
-        var_dump($player_games); die();
-
         shuffle($games);
 
         $random_game = array_shift($games);
@@ -72,7 +70,7 @@ class RouletteController extends AbstractActionController
         $view_model = new ViewModel();
 
         $view_model->setVariable('game', $random_game);
-        $view_model->setVariable('players', $player_games[$game['appid']]);
+        $view_model->setVariable('players', $player_games[$random_game['appid']]);
 
         return $view_model;
     }
