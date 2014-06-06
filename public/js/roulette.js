@@ -45,6 +45,10 @@ function prepLoadImages()
             {
                 games_div.empty();
 
+                games_div.append('<div id="count"></div>');
+
+                var game_count = 0;
+
                 for (var i = 0; i < data.games.length; i++) {
                     var img = undefined;
 
@@ -61,8 +65,11 @@ function prepLoadImages()
                         games_div.append(
                             '<img src="http://media.steampowered.com/steamcommunity/public/images/apps/' + appid + '/' + img + '.jpg" width="' + width + '" height="' + height + '" />'
                         )
+                        game_count++;
                     }
                 }
+
+                games_div.find('#count').html(game_count + ' games');
 
                 games_div.waitForImages(function() {
                     loading_div.fadeOut(400, function() {
