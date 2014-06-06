@@ -9,13 +9,11 @@ function setupFields() {
             prepLoadImages();
             setupFields();
         }
-    })
-
+    });
 }
 
 function prepLoadImages()
-{
-    var urls_div = $("#urls");
+{ var urls_div = $("#urls");
     urls_div.find(':text').off();
 
     urls_div.submit(function() {
@@ -42,6 +40,6 @@ function prepLoadImages()
 }
 
 $(document).ready(function() {
-    setupFields();
     prepLoadImages();
+    setupFields();
 });
