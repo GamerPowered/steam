@@ -1,6 +1,4 @@
 function setupFields() {
-    prepLoadImages();
-
     var input = $('#urls').find(' :text:last');
 
     $(input).keydown(function(event) {
@@ -8,6 +6,7 @@ function setupFields() {
             $('#inputs').append('<br /><input type="text" name="url[]" placeholder="Enter Steam URL"/>');
             $(this).off();
 
+            prepLoadImages();
             setupFields();
         }
     })
@@ -44,4 +43,5 @@ function prepLoadImages()
 
 $(document).ready(function() {
     setupFields();
+    prepLoadImages();
 });
