@@ -60,15 +60,15 @@ function prepLoadImages()
                         var appid = data.games[i].appid
 
                         games_div.append(
-                            '<img src="http://media.steampowered.com/steamcommunity/public/images/apps/' + appid + '/' + img + '.jpg" width="' + width + '" height="' + height + '/>'
+                            '<img src="http://media.steampowered.com/steamcommunity/public/images/apps/' + appid + '/' + img + '.jpg" width="' + width + '" height="' + height + '" />'
                         )
                     }
                 }
 
-                //games_div.waitForImages(function() {
+                games_div.waitForImages(function() {
                     games_div.show();
                     loading_div.hide();
-                //});
+                });
             });
         }
     });
