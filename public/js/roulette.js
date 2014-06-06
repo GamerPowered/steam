@@ -53,9 +53,6 @@ function prepLoadImages()
 
                     if (data.games[i].img_logo_url != '') {
                         img = data.games[i].img_logo_url;
-                    } else if (data.games[i].img_icon_url != '') {
-                        width = 69;
-                        img = data.games[i].img_icon_url;
                     }
 
                     if (img != undefined) {
