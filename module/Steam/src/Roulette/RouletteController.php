@@ -49,6 +49,8 @@ class RouletteController extends AbstractActionController
 
         $player_details = $user->getPlayerSummaries($players);
 
+        $player_games = [];
+
         foreach ($players as $player) {
 
             $result = $playerService->getOwnedGames($player, true);
@@ -62,6 +64,8 @@ class RouletteController extends AbstractActionController
         }
 
         shuffle($games);
+
+        var_dump($player_games); die();
 
         $random_game = array_shift($games);
 
