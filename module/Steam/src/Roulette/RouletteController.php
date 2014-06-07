@@ -65,7 +65,7 @@ class RouletteController extends AbstractActionController
 
         $random_game = array_shift($games);
 
-        $other_games = array_slice($games, 0, 12);
+        $other_games = array_slice($games, 0, 10);
 
         $other_games[] = $random_game;
 
