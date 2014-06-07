@@ -83,7 +83,7 @@ var init = function() {
         if (t_interval < last_interval) {
             setTimeout(timeoutfunc, t_interval)
         } else {
-            $('#carousel').fadeOut(200, function() {
+            $('#carousel').fadeOut(400, function() {
                 $('#game').fadeIn(2000);
                 $('#gametitle').fadeTo(2000, 1);
                 $('#players').fadeTo(2000, 1);
