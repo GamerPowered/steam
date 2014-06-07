@@ -87,7 +87,7 @@ var init = function() {
             $('#players').fadeTo(2000, 1);
         }
     };
-    carousel.transform();
+
     $(carousel.element).waitForImages(function() {
         $(carousel.element).children().css('opacity', 1);
         timeoutfunc();
