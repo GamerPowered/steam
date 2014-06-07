@@ -27,7 +27,7 @@ Carousel3D.prototype.modify = function() {
     $(this.element).children().each(function(i, panel) {
         angle = theta_pass * i;
         // rotate panel, then push it out in 3D space
-        $(panel).css(transformProp, rotateFn_pass + '(' + angle + 'deg) translateZ(' + radius_pass + 'px)');
+        $(panel).css(transformProp, rotateFn_pass + '(' + angle + 'deg)');// translateZ(' + radius_pass + 'px)');
     });
 
     // adjust rotation so panels are always flat
@@ -40,7 +40,7 @@ Carousel3D.prototype.modify = function() {
 Carousel3D.prototype.transform = function() {
     // push the carousel back in 3D space,
     // and rotate it
-    $(this.element).css(transformProp, 'translateZ(-' + this.radius + 'px) ' + this.rotateFn + '(' + this.rotation + 'deg)');
+    $(this.element).css(transformProp, this.rotateFn + '(' + this.rotation + 'deg)');
 };
 
 
