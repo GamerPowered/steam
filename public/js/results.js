@@ -37,10 +37,10 @@ Carousel3D.prototype.modify = function() {
 
 };
 
-Carousel3D.prototype.transform = function(speed) {
+Carousel3D.prototype.transform = function() {
     // push the carousel back in 3D space,
     // and rotate it
-    $(this.element).animate(transformProp, 'translateZ(-' + this.radius + 'px) ' + this.rotateFn + '(' + this.rotation + 'deg)', speed);
+    $(this.element).css(transformProp, 'translateZ(-' + this.radius + 'px) ' + this.rotateFn + '(' + this.rotation + 'deg)');
 };
 
 
@@ -66,7 +66,7 @@ var init = function() {
 
     var timeoutfunc = function() {
         carousel.rotation -= carousel.theta;
-        carousel.transform(t_interval);
+        carousel.transform();
 
         inertia_dampening = (1.01 * inertia_dampening) + (slow_factor * slow_factor * inertia_factor);
 
