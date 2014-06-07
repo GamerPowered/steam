@@ -58,7 +58,6 @@ class RouletteController extends AbstractActionController
                 apc_store('player_' . $player, $result, 3600);
             }
 
-            $result = $playerService->getOwnedGames($player, true);
             foreach ($result['response']['games'] as $game) {
 
                 $game_id = $game['appid'];
