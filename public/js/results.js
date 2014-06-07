@@ -93,7 +93,7 @@ var init = function() {
 
     $(carousel.element).waitForImages(function() {
         $(carousel.element).children().fadeTo(400, 1);
-        setTimeout(timeoutfunc(), 1000);
+        setTimeout(timeoutfunc(), 10000);
     });
 
 
