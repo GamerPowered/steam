@@ -6,7 +6,6 @@ function Carousel3D ( el ) {
     this.rotation = 0;
     this.panelCount = 0;
     this.theta = 0;
-    this.speed = 1;
 }
 
 Carousel3D.prototype.modify = function() {
@@ -24,7 +23,6 @@ Carousel3D.prototype.modify = function() {
     theta_pass = this.theta;
     radius_pass = this.radius;
     rotateFn_pass = this.rotateFn;
-    speed_pass = this.speed;
 
     $(this.element).children().each(function(i, panel) {
         angle = theta_pass * i;
@@ -39,10 +37,10 @@ Carousel3D.prototype.modify = function() {
 
 };
 
-Carousel3D.prototype.transform = function() {
+Carousel3D.prototype.transform = function(speed) {
     // push the carousel back in 3D space,
     // and rotate it
-    $(this.element).css(transformProp, 'translateZ(-' + this.radius + 'px) ' + this.rotateFn + '(' + this.rotation + 'deg)');
+    $(this.element).animate(transformProp, 'translateZ(-' + this.radius + 'px) ' + this.rotateFn + '(' + this.rotation + 'deg)', speed);
 };
 
 
@@ -68,14 +66,13 @@ var init = function() {
 
     var timeoutfunc = function() {
         carousel.rotation -= carousel.theta;
-        carousel.transform();
+        carousel.transform(t_interval);
 
         inertia_dampening = (1.01 * inertia_dampening) + (slow_factor * slow_factor * inertia_factor);
 
         t_interval = (last_interval - (last_interval - (t_interval * 1 + inertia_dampening)));
 
         transforms++;
-        carousel.speed = (last_interval - (last_interval - (t_interval * 1 + inertia_dampening)));
 
         console.log(transforms);
         if (t_interval < last_interval) {
@@ -89,7 +86,6 @@ var init = function() {
         }
     };
 
-    carousel.transform();
     $(carousel.element).waitForImages(function() {
         $(carousel.element).children().fadeTo(400, 1);
         timeoutfunc();
