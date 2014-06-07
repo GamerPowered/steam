@@ -93,7 +93,7 @@ var init = function() {
 
     $(carousel.element).waitForImages(function() {
         $(carousel.element).children().css('opacity', 1);
-        timeoutfunc();
+        setTimeout(timeoutfunc(), 1000);
     });
 
 
