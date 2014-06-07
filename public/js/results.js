@@ -52,7 +52,7 @@ var init = function() {
 
     // populate on startup
     carousel.panelCount = $('#carousel').find('img').length
-    //carousel.modify();
+    carousel.modify();
 
     $('body').addClass('ready');
 
@@ -89,6 +89,7 @@ var init = function() {
         }
     };
 
+    carousel.transform();
     $(carousel.element).waitForImages(function() {
         $(carousel.element).children().fadeTo(400, 1);
         timeoutfunc();
