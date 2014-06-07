@@ -18,7 +18,6 @@
     <br />
     <div id="players">
 
-        <a href="steam://run/{{ game.appid }}">Install/Play</a><br/>
         {% for player in players %}
             <img src="{{ player.avatar }}" /> {{ player.personaname }}<br/>
         {% endfor %}

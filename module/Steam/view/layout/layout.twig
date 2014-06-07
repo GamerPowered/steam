@@ -36,14 +36,14 @@
             transition: transform 1s;
         }
 
-        #carousel.panels-backface-invisible img {
+        #carousel.panels-backface-invisible a img {
             -webkit-backface-visibility: hidden;
             -moz-backface-visibility: hidden;
             -o-backface-visibility: hidden;
             backface-visibility: hidden;
         }
 
-        #carousel img {
+        #carousel a img {
             display: block;
             position: absolute;
             width: 368px;
@@ -59,7 +59,7 @@
             opacity: 0;
         }
 
-        .ready div #carousel img {
+        .ready div #carousel a img {
             -webkit-transition: opacity 1s, -webkit-transform 1s;
             -moz-transition: opacity 1s, -moz-transform 1s;
             -o-transition: opacity 1s, -o-transform 1s;
