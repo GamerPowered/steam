@@ -33,8 +33,6 @@ Carousel3D.prototype.modify = function() {
     // adjust rotation so panels are always flat
     //this.rotation = Math.round( this.rotation / this.theta ) * this.theta;
 
-    console.log(this.rotation, this.theta);
-
     this.transform();
 
 };
@@ -74,7 +72,6 @@ var init = function() {
 
         transforms++;
 
-        console.log(transforms);
         if (t_interval < last_interval) {
             setTimeout(timeoutfunc, t_interval)
         } else {
