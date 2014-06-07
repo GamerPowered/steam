@@ -92,7 +92,7 @@ var init = function() {
     };
 
     $(carousel.element).waitForImages(function() {
-        $(carousel.element).children().css('opacity', 1);
+        $(carousel.element).children().fadeTo(400, 1);
         setTimeout(timeoutfunc(), 1000);
     });
 

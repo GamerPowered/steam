@@ -1,7 +1,8 @@
+
 <html>
 <head>
     <title>Steam Roulette</title>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
     <style media="screen">
 
@@ -23,8 +24,8 @@
             position: absolute;
             width: 368px;
             height: 138px;
-            left: 12px;
-            top: 12px;
+            left: 10px;
+            top: 10px;
         }
 
         #carousel {
@@ -59,7 +60,7 @@
             left: 10px;
             top: 10px;
             border: 2px solid black;
-            line-height: 200px;
+            line-height: 116px;
             font-size: 80px;
             font-weight: bold;
             color: white;
@@ -81,7 +82,38 @@
 </head>
 <body style="text-align: center;">
 <div style="margin: 0 auto; display: inline-block;">
-    {{ content | raw }}
+    <h1 id="gametitle">Stacking</h1>
+    <section class="container">
+        <div id="carousel" class="panels-backface-invisible">
+            <img src="http://media.steampowered.com/steamcommunity/public/images/apps/12900/75dc0398efeae1cc994714e37c893b593f9c9a88.jpg" width="368" height="138" />
+            <img src="http://media.steampowered.com/steamcommunity/public/images/apps/115100/125ad90dba2c6c3726837ae9c1889d8009f806a9.jpg" width="368" height="138" />
+            <img src="http://media.steampowered.com/steamcommunity/public/images/apps/224060/53d5d045b96b52126ef3515e088cdeb331c88897.jpg" width="368" height="138" />
+            <img src="http://media.steampowered.com/steamcommunity/public/images/apps/340/867cce5c4f37d5ed4aeffb57c60e220ddffe4134.jpg" width="368" height="138" />
+            <img src="http://media.steampowered.com/steamcommunity/public/images/apps/200170/3808bfc4b577f8f69ec5239d96fb029c71daa22d.jpg" width="368" height="138" />
+            <img src="http://media.steampowered.com/steamcommunity/public/images/apps/70/6bd76ff700a8c7a5460fbae3cf60cb930279897d.jpg" width="368" height="138" />
+            <img src="http://media.steampowered.com/steamcommunity/public/images/apps/260060/39262fa07aa451268a255a8bde1a58beecdb0b34.jpg" width="368" height="138" />
+            <img src="http://media.steampowered.com/steamcommunity/public/images/apps/200630/29a39c2cf5a9aece9d9a48752ef32f10f976acc9.jpg" width="368" height="138" />
+            <img src="http://media.steampowered.com/steamcommunity/public/images/apps/225760/b65d9cb339952799606d2c478521013f1b725df6.jpg" width="368" height="138" />
+            <img src="http://media.steampowered.com/steamcommunity/public/images/apps/293300/8ebe4f1aa87e9a59da10bafb010e0b755a9ae65d.jpg" width="368" height="138" />
+            <img src="http://media.steampowered.com/steamcommunity/public/images/apps/115110/5bbd716992eab33cc5bbcd54cf691da700372329.jpg" width="368" height="138" />
+        </div>
+        <div id="game">
+            <a href="steam://run/115110">
+                <img src="http://media.steampowered.com/steamcommunity/public/images/apps/115110/5bbd716992eab33cc5bbcd54cf691da700372329.jpg" width="368" height="138" />
+            </a>
+        </div>
+    </section>
+
+    <br />
+    <br />
+    <div id="players">
+
+        <img src="http://media.steampowered.com/steamcommunity/public/images/avatars/f6/f6159473c2f35d44d5e53782284a8240caf9ea49.jpg" /> Mez<br/>
+    </div>
+    <script src="/js/waitforimages.min.js"></script>
+    <script src="/js/modernizr.js"></script>
+    <script src="/js/results.js"></script>
+
 
     <div style="margin-top: 200px;">
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
