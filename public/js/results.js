@@ -31,7 +31,9 @@ Carousel3D.prototype.modify = function() {
     });
 
     // adjust rotation so panels are always flat
-    this.rotation = Math.round( this.rotation / this.theta ) * this.theta;
+    //this.rotation = Math.round( this.rotation / this.theta ) * this.theta;
+
+    console.log(this.rotation, this.theta);
 
     this.transform();
 
@@ -51,8 +53,6 @@ var init = function() {
     // populate on startup
     carousel.panelCount = $('#carousel').find('img').length
     carousel.modify();
-    carousel.transform();
-    $('body').addClass('ready');
 
     var t_interval = 1;
     var transforms = 0;
@@ -87,6 +87,7 @@ var init = function() {
     };
 
     $(carousel.element).waitForImages(function() {
+        $('body').addClass('ready');
         $(carousel.element).children().fadeTo(400, 1);
         timeoutfunc();
     });
