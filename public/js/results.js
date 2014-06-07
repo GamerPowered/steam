@@ -50,11 +50,9 @@ Carousel3D.prototype.transform = function() {
 var init = function() {
     var carousel = new Carousel3D( document.getElementById('carousel') );
 
-
     // populate on startup
     carousel.panelCount = $('#carousel').find('img').length
-    carousel.modify();
-
+    //carousel.modify();
 
     $('body').addClass('ready');
 
@@ -93,7 +91,7 @@ var init = function() {
 
     $(carousel.element).waitForImages(function() {
         $(carousel.element).children().fadeTo(400, 1);
-        setTimeout(timeoutfunc, 1500);
+        timeoutfunc();
     });
 
 
