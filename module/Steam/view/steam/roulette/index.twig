@@ -1,5 +1,5 @@
 {%  if game %}
-    <h1 id="gametitle">{{ game.name }}</h1>
+    <h1 id="gametitle">{{ picked_game.name }}</h1>
     <section class="container">
         <div id="carousel" class="panels-backface-invisible">
             {% for game in games %}
@@ -9,6 +9,15 @@
                     <img src="http://media.steampowered.com/steamcommunity/public/images/apps/{{ game.appid }}/{{ game.img_icon_url }}.jpg" width="138" height="138" />
                 {% endif %}
             {% endfor %}
+        </div>
+        <div id="game">
+            <a href="steam://run/{{ picked_game.appid }}">
+            {% if picked_game.img_logo_url %}
+                <img src="http://media.steampowered.com/steamcommunity/public/images/apps/{{ game.appid }}/{{ game.img_logo_url }}.jpg" width="368" height="138" />
+            {% elseif picked_game.img_icon_url %}
+                <img src="http://media.steampowered.com/steamcommunity/public/images/apps/{{ game.appid }}/{{ game.img_icon_url }}.jpg" width="138" height="138" />
+            {% endif %}
+            </a>
         </div>
     </section>
 

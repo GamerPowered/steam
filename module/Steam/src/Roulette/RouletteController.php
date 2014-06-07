@@ -79,8 +79,8 @@ class RouletteController extends AbstractActionController
 
         $view_model = new ViewModel();
 
-        $view_model->setVariable('game', $random_game);
-        $view_model->setVariable('games', $other_games);
+        $view_model->setVariable('picked_game', $random_game);
+        $view_model->setVariable('other_games', $other_games);
         $view_model->setVariable('players', $played_by);
 
         return $view_model;
