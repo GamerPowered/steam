@@ -83,8 +83,8 @@ var init = function() {
         if (t_interval < last_interval) {
             setTimeout(timeoutfunc, t_interval)
         } else {
-            $('#gametitle').fadeIn(2000);
-            $('#players').fadeIn(2000);
+            $('#gametitle').fadeTo(2000, 1);
+            $('#players').fadeTo(2000, 1);
         }
     };
     $(carousel.element).waitForImages(function() {
