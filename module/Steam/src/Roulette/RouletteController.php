@@ -51,6 +51,13 @@ class RouletteController extends AbstractActionController
 
         foreach ($players as $player) {
 
+            $result = apc_fetch('player_' . $player);
+
+            if (!$result) {
+                $result = $playerService->getOwnedGames($player, true);
+                apc_store('player_' . $player, $result, 3600);
+            }
+
             $result = $playerService->getOwnedGames($player, true);
             foreach ($result['response']['games'] as $game) {
 
