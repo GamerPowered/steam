@@ -65,8 +65,9 @@ class RouletteController extends AbstractActionController
 
         $random_game = array_shift($games);
 
-        $other_games = array_slice($games, 0, 14);
+        $other_games = array_slice($games, 0, 12);
 
+        $other_games[] = $random_game;
 
         $player_details = $user->getPlayerSummaries($players);
 
@@ -79,6 +80,7 @@ class RouletteController extends AbstractActionController
         $view_model = new ViewModel();
 
         $view_model->setVariable('game', $random_game);
+        $view_model->setVariable('games', $other_games);
         $view_model->setVariable('players', $played_by);
 
         return $view_model;
