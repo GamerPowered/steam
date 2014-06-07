@@ -237,6 +237,7 @@
         this.rotation = 0;
         this.panelCount = 0;
         this.theta = 0;
+        this.speed = 1;
     }
 
     Carousel3D.prototype.modify = function() {
@@ -254,6 +255,7 @@
         theta_pass = this.theta;
         radius_pass = this.radius;
         rotateFn_pass = this.rotateFn;
+        speed_pass = this.speed;
 
         $(this.element).children().each(function(i, panel) {
             angle = theta_pass * i;
@@ -290,11 +292,12 @@
         var t_interval = 1;
         var transforms = 0;
 
-        var inertia_factor = 0.0001;
-        var inertia_dampening = 0.0;
-        var deceleration = 12;
+        var last_interval = 200;
 
-        var slow_factor = 25;
+        var inertia_factor = 0.00003;
+        var inertia_dampening = 0.0;
+
+        var slow_factor = 50;
 
         var timeoutfunc = function() {
             carousel.rotation -= carousel.theta;
@@ -302,11 +305,13 @@
 
             inertia_dampening = (1.01 * inertia_dampening) + (slow_factor * slow_factor * inertia_factor);
 
-            t_interval = (500 - (500 - (t_interval * 1 + inertia_dampening)));
+            t_interval = (last_interval - (last_interval - (t_interval * 1 + inertia_dampening)));
 
             transforms++;
+            carousel.speed = (last_interval - (last_interval - (t_interval * 1 + inertia_dampening)));
+
             console.log(transforms);
-            if (t_interval < 500) {
+            if (t_interval < last_interval) {
                 setTimeout(timeoutfunc, t_interval)
             }
         };

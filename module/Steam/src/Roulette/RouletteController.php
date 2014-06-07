@@ -65,6 +65,9 @@ class RouletteController extends AbstractActionController
 
         $random_game = array_shift($games);
 
+        $other_games = array_slice($games, 0, 14);
+
+
         $player_details = $user->getPlayerSummaries($players);
 
         $played_by = [];
