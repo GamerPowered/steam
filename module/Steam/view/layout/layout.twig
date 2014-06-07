@@ -29,7 +29,7 @@
             transform-style: preserve-3d;
         }
 
-        .ready #carousel {
+        .ready div #carousel {
             -webkit-transition: -webkit-transform 1s;
             -moz-transition: -moz-transform 1s;
             -o-transition: -o-transform 1s;
@@ -59,7 +59,7 @@
             opacity: 0;
         }
 
-        .ready #carousel img {
+        .ready div #carousel img {
             -webkit-transition: opacity 1s, -webkit-transform 1s;
             -moz-transition: opacity 1s, -moz-transform 1s;
             -o-transition: opacity 1s, -o-transform 1s;
@@ -67,12 +67,11 @@
         }
 
         #gametitle, #players {
-            opacity: 0;
-            transition opacity 1s;
+            display: none;
         }
     </style>
 </head>
-<body style="">
+<body style="text-align: center">
 <div style="margin: 0 auto; display: inline-block;">
     {{ content | raw }}
 
