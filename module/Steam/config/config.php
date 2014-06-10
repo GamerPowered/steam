@@ -3,6 +3,7 @@
 return [
     'controllers' => [
         'invokables' => [
+            'familysharing' => '\GamerPowered\Steam\FamilySharing\FamilySharingController',
             'json' => '\GamerPowered\Steam\Roulette\JsonController',
             'roulette' => '\GamerPowered\Steam\Roulette\RouletteController',
         ]
