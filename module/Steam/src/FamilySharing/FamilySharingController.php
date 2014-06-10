@@ -21,6 +21,23 @@ class FamilySharingController extends AbstractActionController
         $player1 = $this->params()->fromQuery('player1');
         $player2 = $this->params()->fromQuery('player2');
 
+        $player1_family_param = $this->params()->fromQuery('player1family');
+        $player2_family_param = $this->params()->fromQuery('player2family');
+
+        $player1_family = [];
+        foreach ($player1_family_param AS $family_member) {
+            if (!empty($family_member)) {
+                $player1_family[] = $family_member;
+            }
+        }
+
+        $player2_family = [];
+        foreach ($player2_family_param AS $family_member) {
+            if (!empty($family_member)) {
+                $player2_family[] = $family_member;
+            }
+        }
+
         if(!is_null($player1) && !is_null($player2)) {
             /** @var \GamerPowered\Steam\Api\User $user */
             $user = $this->getServiceLocator()->get('\GamerPowered\Steam\Api\User');
@@ -29,7 +46,7 @@ class FamilySharingController extends AbstractActionController
             $player2_id = $user->resolveVanityUrl($player2);
 
             if (!is_null($player1_id) && !is_null($player2_id)) {
-                /** @var \Steam\Api\PlayerService $user */
+                /** @var \Steam\Api\PlayerService $playerService */
                 $playerService = $this->getServiceLocator()->get('\GamerPowered\Steam\Api\SteamPlayer');
 
                 $player1_games = [];
@@ -43,6 +60,25 @@ class FamilySharingController extends AbstractActionController
                     $player1_games[$game_id] = $game;
                 }
 
+                $player1_family_games = $player1_games;
+
+                if (!empty($player1_family)) {
+                    foreach ($player1_family as $family_member) {
+                        $steam_id = $user->resolveVanityUrl($family_member);
+
+                        if (!is_null($steam_id)) {
+                            $result = $playerService->getOwnedGames($steam_id, true);
+
+                            foreach ($result['response']['games'] as $game) {
+                                $game_id = (int) $game['appid'];
+
+                                $player1_family_games[$game_id] = $game;
+                            }
+                        }
+                    }
+                }
+
+
                 $player2_games_result = $playerService->getOwnedGames($player2_id, true);
                 foreach ($player2_games_result['response']['games'] as $game) {
 
@@ -51,9 +87,26 @@ class FamilySharingController extends AbstractActionController
                     $player2_games[$game_id] = $game;
                 }
 
-                $player1_benefit = array_diff_key($player2_games, $player1_games);
+                $player2_family_games = $player2_games;
 
-                $player2_benefit = array_diff_key($player1_games, $player2_games);
+                if (!empty($player2_family)) {
+                    foreach ($player2_family as $family_member) {
+                        $steam_id = $user->resolveVanityUrl($family_member);
+                        if (!is_null($steam_id)) {
+                            $result = $playerService->getOwnedGames($steam_id, true);
+
+                            foreach ($result['response']['games'] as $game) {
+                                $game_id = (int) $game['appid'];
+
+                                $player2_family_games[$game_id] = $game;
+                            }
+                        }
+                    }
+                }
+
+                $player1_benefit = array_diff_key($player2_games, $player1_family_games);
+
+                $player2_benefit = array_diff_key($player1_games, $player2_family_games);
 
                 usort(
                     $player1_benefit,
@@ -82,6 +135,8 @@ class FamilySharingController extends AbstractActionController
 
             $view_model->setVariable('player1', $player1);
             $view_model->setVariable('player2', $player2);
+            $view_model->setVariable('player1family', $player1_family_param);
+            $view_model->setVariable('player2family', $player2_family_param);
         }
         return $view_model;
     }
