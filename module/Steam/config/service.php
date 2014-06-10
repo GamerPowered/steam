@@ -3,6 +3,7 @@
 return [
     'invokables' => [
         '\GamerPowered\Steam\Api\Guzzle' => '\GamerPowered\Steam\Api\Guzzle',
+        '\GamerPowered\Steam\FamilySharing\FamilySharingController' => '\GamerPowered\Steam\FamilySharing\FamilySharingController',
         '\GamerPowered\Steam\Mvc\View\Http\InjectTemplateListener' => '\GamerPowered\Steam\Mvc\View\Http\InjectTemplateListener',
         '\GamerPowered\Steam\Roulette\JsonController' => '\GamerPowered\Steam\Roulette\JsonController',
         '\GamerPowered\Steam\Roulette\RouletteController' => '\GamerPowered\Steam\Roulette\RouletteController',

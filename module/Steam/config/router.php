@@ -12,6 +12,16 @@ return [
                 ],
             ],
         ],
+        'familysharing' => [
+            'type' => 'Literal',
+            'options' => [
+                'route' => '/familysharing',
+                'defaults' => [
+                    'controller' => 'familysharing',
+                    'action' => 'index'
+                ],
+            ],
+        ],
         'json' => [
             'type' => 'Segment',
             'options' => [

@@ -1,0 +1,52 @@
+<h1>Family Sharing Benefits Calculator</h1>
+<small>Because &quot;Family with benefits&quot; sounds so wrong</small>
+<form method="get" action="/familysharing" id="urls">
+    <div id="inputs">
+        <input type="text" name="player1" placeholder="Enter User 1 Steam URL"{% if player1 %} value="{{ player1 }}"{% endif %}/>
+        <input type="text" name="player2" placeholder="Enter User 2 Steam URL"{% if player2 %} value="{{ player2 }}"{% endif %}/>
+        {% if player1_error %}
+            <span>No Steam user found for &quot;{{ player1 }}&quot;</span>
+        {% endif %}
+        {% if player2_error %}
+            <span>No Steam user found for &quot;{{ player2 }}&quot;</span>
+        {% endif %}
+    </div>
+    <input type="submit" value="Compare"/>
+</form>
+<div id="games">
+    {% if player1_games %}
+        <div id="player1_games" style="width: 48%; margin-left: 25px; float: left;">
+            <h2>{{ player1 }} would gain {{ player1_games|length }}:</h2>
+            {% for game in player1_games %}
+                <div style="width: 185px; height: 70px; float: left;">
+                    <a href="http://store.steampowered.com/app/{{ game.appid }}/">
+                        {% if game.img_logo_url %}
+                            <img src="http://media.steampowered.com/steamcommunity/public/images/apps/{{ game.appid }}/{{ game.img_logo_url }}.jpg" width="184" height="69" />
+                        {% else %}
+                            {{ game.name }}
+                        {% endif %}
+                    </a>
+                </div>
+            {% endfor %}
+            <div style="clear: both;"></div>
+        </div>
+    {% endif %}
+
+    {% if player2_games %}
+        <div id="player2_games" style="width: 48%; margin-right: 25px; float: right;">
+            <h2>{{ player2 }} would gain {{ player2_games|length }}:</h2>
+            {% for game in player2_games %}
+                <div style="width: 185px; height: 70px; float: left;">
+                    <a href="http://store.steampowered.com/app/{{ game.appid }}/">
+                        {% if game.img_logo_url %}
+                            <img src="http://media.steampowered.com/steamcommunity/public/images/apps/{{ game.appid }}/{{ game.img_logo_url }}.jpg" width="184" height="69" />
+                        {% else %}
+                            {{ game.name }}
+                        {% endif %}
+                    </a>
+                </div>
+            {% endfor %}
+            <div style="clear: both;"></div>
+        </div>
+    {% endif %}
+</div>
