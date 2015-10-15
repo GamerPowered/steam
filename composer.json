@@ -3,7 +3,8 @@
         "ext-apcu": "*",
         "da-mitchell/steam-api": "dev-master",
         "zendframework/zendframework": "~2.3",
-        "zf-commons/zfc-twig": "dev-master"
+        "zf-commons/zfc-twig": "dev-master",
+        "airbrake/phpbrake": "^0.0.11"
     },
     "require-dev": {
         "heroku/heroku-buildpack-php": "*"
