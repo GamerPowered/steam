@@ -1,6 +1,8 @@
 <?php
 
-use Airbrake;
+use Airbrake\ErrorHandler;
+use Airbrake\Instance;
+use Airbrake\Notifier;
 use Zend\Mvc\Application;
 
 date_default_timezone_set('Europe/London');
@@ -16,16 +18,16 @@ if (!include_once('vendor/autoload.php')) {
 $config = include 'config/application.config.php';
 
 // Create new Notifier instance.
-$notifier = new Airbrake\Notifier(array(
+$notifier = new Notifier([
     'projectId' => 116732,
     'projectKey' => '20c3949e27b50d1921dcd377a5f1851a',
-));
+]);
 
 // Set global notifier instance.
-Airbrake\Instance::set($notifier);
+Instance::set($notifier);
 
 // Register error and exception handlers.
-$handler = new Airbrake\ErrorHandler($notifier);
+$handler = new ErrorHandler($notifier);
 $handler->register();
 
 Application::init($config)->run();
