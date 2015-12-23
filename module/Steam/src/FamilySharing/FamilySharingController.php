@@ -21,8 +21,8 @@ class FamilySharingController extends AbstractActionController
         $player1 = $this->params()->fromQuery('player1');
         $player2 = $this->params()->fromQuery('player2');
 
-        $player1_family_param = $this->params()->fromQuery('player1family');
-        $player2_family_param = $this->params()->fromQuery('player2family');
+        $player1_family_param = $this->params()->fromQuery('player1family', []);
+        $player2_family_param = $this->params()->fromQuery('player2family', []);
 
         $player1_family = [];
         foreach ($player1_family_param AS $family_member) {
