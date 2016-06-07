@@ -3,6 +3,5 @@
 #################
 
 vendor/
-.idea/workspace.xml
-.idea/php.xml
 composer.phar
+.idea
