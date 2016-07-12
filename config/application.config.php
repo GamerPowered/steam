@@ -2,6 +2,7 @@
 
 return [
     'modules' => [
+        'ZendSentry',
         'ZfcTwig',
         'GamerPowered\Steam',
     ],
