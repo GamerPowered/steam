@@ -26,7 +26,12 @@ class RouletteControllerFactory implements FactoryInterface
             $serviceLocator = $serviceLocator->getServiceLocator();
         }
         
+        /** @var User $user */
         $user = $serviceLocator->get(User::class);
+        
+        /** @var PlayerService $playerService */
         $playerService = $serviceLocator->get(PlayerService::class);
+        
+        return new RouletteController($user, $playerService);
     }
 }
