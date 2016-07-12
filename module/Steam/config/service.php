@@ -12,7 +12,6 @@ return [
         Steam\FamilySharing\FamilySharingController::class => Steam\FamilySharing\FamilySharingController::class,
         Steam\Mvc\View\Http\InjectTemplateListener::class => Steam\Mvc\View\Http\InjectTemplateListener::class,
         Steam\Roulette\JsonController::class => Steam\Roulette\JsonController::class,
-        Steam\Roulette\RouletteController::class => Steam\Roulette\RouletteController::class,
     ],
     'factories' => [
         Steam\Api\ConfigFactory::class => Steam\Api\ConfigFactory::class,
