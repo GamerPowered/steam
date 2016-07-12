@@ -22,7 +22,7 @@ class UserFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        $steam_user = $serviceLocator->get('\Steam\Api\User');
+        $steam_user = $serviceLocator->get(\Steam\Api\User::class);
 
         $user = new User;
 

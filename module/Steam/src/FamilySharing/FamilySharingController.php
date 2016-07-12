@@ -2,6 +2,8 @@
 
 namespace GamerPowered\Steam\FamilySharing;
 
+use GamerPowered\Steam\Api\User;
+use Steam\Api\PlayerService;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
@@ -38,16 +40,16 @@ class FamilySharingController extends AbstractActionController
             }
         }
 
-        if(!is_null($player1) && !is_null($player2)) {
-            /** @var \GamerPowered\Steam\Api\User $user */
-            $user = $this->getServiceLocator()->get('\GamerPowered\Steam\Api\User');
+        if (!is_null($player1) && !is_null($player2)) {
+            /** @var User $user */
+            $user = $this->getServiceLocator()->get(User::class);
 
             $player1_id = $user->resolveVanityUrl($player1);
             $player2_id = $user->resolveVanityUrl($player2);
 
             if (!is_null($player1_id) && !is_null($player2_id)) {
-                /** @var \Steam\Api\PlayerService $playerService */
-                $playerService = $this->getServiceLocator()->get('\GamerPowered\Steam\Api\SteamPlayer');
+                /** @var PlayerService $playerService */
+                $playerService = $this->getServiceLocator()->get(PlayerService::class);
 
                 $player1_games = [];
                 $player2_games = [];
@@ -55,7 +57,7 @@ class FamilySharingController extends AbstractActionController
                 $player1_games_result = $playerService->getOwnedGames($player1_id, true);
                 foreach ($player1_games_result['response']['games'] as $game) {
 
-                    $game_id = (int) $game['appid'];
+                    $game_id = (int)$game['appid'];
 
                     $player1_games[$game_id] = $game;
                 }
@@ -70,7 +72,7 @@ class FamilySharingController extends AbstractActionController
                             $result = $playerService->getOwnedGames($steam_id, true);
 
                             foreach ($result['response']['games'] as $game) {
-                                $game_id = (int) $game['appid'];
+                                $game_id = (int)$game['appid'];
 
                                 $player1_family_games[$game_id] = $game;
                             }
@@ -82,7 +84,7 @@ class FamilySharingController extends AbstractActionController
                 $player2_games_result = $playerService->getOwnedGames($player2_id, true);
                 foreach ($player2_games_result['response']['games'] as $game) {
 
-                    $game_id = (int) $game['appid'];
+                    $game_id = (int)$game['appid'];
 
                     $player2_games[$game_id] = $game;
                 }
@@ -96,7 +98,7 @@ class FamilySharingController extends AbstractActionController
                             $result = $playerService->getOwnedGames($steam_id, true);
 
                             foreach ($result['response']['games'] as $game) {
-                                $game_id = (int) $game['appid'];
+                                $game_id = (int)$game['appid'];
 
                                 $player2_family_games[$game_id] = $game;
                             }
@@ -110,14 +112,14 @@ class FamilySharingController extends AbstractActionController
 
                 usort(
                     $player1_benefit,
-                    function($a, $b) {
+                    function ($a, $b) {
                         return strcasecmp($a['name'], $b['name']);
                     }
                 );
 
                 usort(
                     $player2_benefit,
-                    function($a, $b) {
+                    function ($a, $b) {
                         return strcasecmp($a['name'], $b['name']);
                     }
                 );

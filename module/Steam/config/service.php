@@ -1,17 +1,24 @@
 <?php
 
+use GamerPowered\Steam;
+use Steam\Api as SteamApi;
+
 return [
+    'aliases' => [
+        'SteamConfig' => Steam\Api\ConfigFactory::class
+    ],
     'invokables' => [
-        '\GamerPowered\Steam\Api\Guzzle' => '\GamerPowered\Steam\Api\Guzzle',
-        '\GamerPowered\Steam\FamilySharing\FamilySharingController' => '\GamerPowered\Steam\FamilySharing\FamilySharingController',
-        '\GamerPowered\Steam\Mvc\View\Http\InjectTemplateListener' => '\GamerPowered\Steam\Mvc\View\Http\InjectTemplateListener',
-        '\GamerPowered\Steam\Roulette\JsonController' => '\GamerPowered\Steam\Roulette\JsonController',
-        '\GamerPowered\Steam\Roulette\RouletteController' => '\GamerPowered\Steam\Roulette\RouletteController',
+        Steam\Api\Guzzle::class => Steam\Api\Guzzle::class,
+        Steam\FamilySharing\FamilySharingController::class => Steam\FamilySharing\FamilySharingController::class,
+        Steam\Mvc\View\Http\InjectTemplateListener::class => Steam\Mvc\View\Http\InjectTemplateListener::class,
+        Steam\Roulette\JsonController::class => Steam\Roulette\JsonController::class,
+        Steam\Roulette\RouletteController::class => Steam\Roulette\RouletteController::class,
     ],
     'factories' => [
-        'SteamConfig' => '\GamerPowered\Steam\Api\ConfigFactory',
-        '\Steam\Api\User' => '\GamerPowered\Steam\Api\SteamUserFactory',
-        '\GamerPowered\Steam\Api\User' => '\GamerPowered\Steam\Api\UserFactory',
-        '\GamerPowered\Steam\Api\SteamPlayer' => '\GamerPowered\Steam\Api\SteamPlayerFactory',
+        Steam\Api\ConfigFactory::class => Steam\Api\ConfigFactory::class,
+        SteamApi\User::class => Steam\Api\SteamUserFactory::class,
+        Steam\Api\User::class => Steam\Api\UserFactory::class,
+        SteamApi\PlayerService::class => Steam\Api\SteamPlayerFactory::class,
+        Steam\Roulette\RouletteController::class => Steam\Roulette\RouletteControllerFactory::class
     ],
 ];

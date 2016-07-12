@@ -1,32 +1,36 @@
-{%  if picked_game %}
+{% if picked_game %}
     <h1 id="gametitle">{{ picked_game.name }}</h1>
     <section class="container">
         <div id="carousel" class="panels-backface-invisible">
             {% for game in other_games %}
                 {% if game.img_logo_url %}
-                    <img src="http://media.steampowered.com/steamcommunity/public/images/apps/{{ game.appid }}/{{ game.img_logo_url }}.jpg" width="368" height="138" />
+                    <img src="http://media.steampowered.com/steamcommunity/public/images/apps/{{ game.appid }}/{{ game.img_logo_url }}.jpg"
+                         width="368" height="138"/>
                 {% elseif game.img_icon_url %}
-                    <img src="http://media.steampowered.com/steamcommunity/public/images/apps/{{ game.appid }}/{{ game.img_icon_url }}.jpg" width="138" height="138" />
+                    <img src="http://media.steampowered.com/steamcommunity/public/images/apps/{{ game.appid }}/{{ game.img_icon_url }}.jpg"
+                         width="138" height="138"/>
                 {% endif %}
             {% endfor %}
         </div>
         <div id="game">
             <a href="steam://run/{{ picked_game.appid }}">
-            {% if picked_game.img_logo_url %}
-                <img src="http://media.steampowered.com/steamcommunity/public/images/apps/{{ picked_game.appid }}/{{ picked_game.img_logo_url }}.jpg" width="368" height="138" />
-            {% elseif picked_game.img_icon_url %}
-                <img src="http://media.steampowered.com/steamcommunity/public/images/apps/{{ picked_game.appid }}/{{ picked_game.img_icon_url }}.jpg" width="138" height="138" />
-            {% endif %}
+                {% if picked_game.img_logo_url %}
+                    <img src="http://media.steampowered.com/steamcommunity/public/images/apps/{{ picked_game.appid }}/{{ picked_game.img_logo_url }}.jpg"
+                         width="368" height="138"/>
+                {% elseif picked_game.img_icon_url %}
+                    <img src="http://media.steampowered.com/steamcommunity/public/images/apps/{{ picked_game.appid }}/{{ picked_game.img_icon_url }}.jpg"
+                         width="138" height="138"/>
+                {% endif %}
             </a>
         </div>
     </section>
 
-    <br />
-    <br />
+    <br/>
+    <br/>
     <div id="players">
 
         {% for player in players %}
-            <img src="{{ player.avatar }}" /> {{ player.personaname }}<br/>
+            <img src="{{ player.avatar }}"/> {{ player.personaname }}<br/>
         {% endfor %}
     </div>
     <script src="/js/waitforimages.min.js"></script>
@@ -37,12 +41,12 @@
     <h1>Steam Roulette (Family Sharing Edition)</h1>
     <form method="get" action="/" id="urls">
         <div id="inputs">
-        <input type="text" name="url[]" placeholder="Enter Steam URL"/>
+            <input type="text" name="url[]" placeholder="Enter Steam URL"/>
         </div>
-        <input type="submit" />
+        <input type="submit"/>
     </form>
 
-    <div id="loading" style="display:none"><img src="/images/loading.gif" /></div>
+    <div id="loading" style="display:none"><img src="/images/loading.gif"/></div>
     <div id="games"></div>
     <script src="/js/roulette.js"></script>
     <script src="/js/waitforimages.min.js"></script>

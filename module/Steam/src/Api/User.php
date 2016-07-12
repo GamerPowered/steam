@@ -17,6 +17,25 @@ class User
     protected $steam_api;
 
     /**
+     * resolveVanityUrl
+     *
+     * @param $url
+     * @return string
+     */
+    public function resolveVanityUrl($url)
+    {
+        $url = trim($url, '/');
+
+        $to_resolve = array_pop(explode('/', $url));
+
+        if (is_numeric($to_resolve)) {
+            return $to_resolve;
+        }
+
+        return $this->getSteamApi()->resolveVanityUrl($to_resolve)['response']['steamid'];
+    }
+
+    /**
      * getSteamApi
      *
      * @return \Steam\Api\User
@@ -37,25 +56,6 @@ class User
         $this->steam_api = $steam_api;
 
         return $this;
-    }
-
-    /**
-     * resolveVanityUrl
-     *
-     * @param $url
-     * @return string
-     */
-    public function resolveVanityUrl($url)
-    {
-        $url = trim($url, '/');
-
-        $to_resolve = array_pop(explode('/', $url));
-
-        if (is_numeric($to_resolve)) {
-            return $to_resolve;
-        }
-
-        return $this->getSteamApi()->resolveVanityUrl($to_resolve)['response']['steamid'];
     }
 
     public function getPlayerSummaries(array $ids)

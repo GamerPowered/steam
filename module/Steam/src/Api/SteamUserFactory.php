@@ -27,8 +27,8 @@ class SteamUserFactory implements FactoryInterface
         /** @var \Steam\Configuration $config */
         $config = $serviceLocator->get('SteamConfig');
 
-        /** @var \GamerPowered\Steam\Api\Guzzle $adapter */
-        $adapter = $serviceLocator->get('\GamerPowered\Steam\Api\Guzzle');
+        /** @var Guzzle $adapter */
+        $adapter = $serviceLocator->get(Guzzle::class);
 
         $adapter->setConfig($config);
 

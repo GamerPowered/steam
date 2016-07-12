@@ -3,11 +3,12 @@
 <head>
     <meta charset="utf-8">
     <title>Steam Roulette</title>
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/style.css"/>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.ravenjs.com/3.0.4/raven.min.js"></script>
     <script>
-            Raven.config('Raven.config('https://58d883ed9154447086e009ef4f42244e@sentry.mez.im/4').install()').install();
+        Raven.config('Raven.config('
+        https://58d883ed9154447086e009ef4f42244e@sentry.mez.im/4').install()').install();
     </script>
 </head>
 <body style="text-align: center;">
@@ -28,10 +29,17 @@
 </div>
 
 <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
     ga('create', 'UA-30279898-2', 'gamerpowered.co.uk');
     ga('send', 'pageview');

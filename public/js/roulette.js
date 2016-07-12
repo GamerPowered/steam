@@ -1,7 +1,7 @@
 function setupFields() {
     var input = $('#urls').find(' :text:last');
 
-    $(input).keydown(function(event) {
+    $(input).keydown(function (event) {
         if (this.value) {
             $('#inputs').append('<br /><input type="text" name="url[]" placeholder="Enter Steam URL"/>');
             $(this).off();
@@ -12,8 +12,7 @@ function setupFields() {
     });
 }
 
-function prepLoadImages()
-{
+function prepLoadImages() {
     if (self.old_urls == undefined) {
         self.old_urls = '';
     }
@@ -21,13 +20,15 @@ function prepLoadImages()
     var urls_div = $("#urls");
     urls_div.find(':text').off();
 
-    urls_div.submit(function() {
-        $(this).find('input:text').filter(function() { return this.value == ""; }).remove();
+    urls_div.submit(function () {
+        $(this).find('input:text').filter(function () {
+            return this.value == "";
+        }).remove();
     });
 
-    urls_div.find(':text').blur(function() {
+    urls_div.find(':text').blur(function () {
 
-        var urls = $("#urls").find(":text").map(function(idx, elem) {
+        var urls = $("#urls").find(":text").map(function (idx, elem) {
             return $(elem).val();
         }).get();
 
@@ -37,12 +38,11 @@ function prepLoadImages()
 
             loading_div = $('#loading');
 
-            games_div.fadeOut(400, function() {
+            games_div.fadeOut(400, function () {
                 loading_div.show();
             });
 
-            $.get('/json/show', {'url': urls}, function(data)
-            {
+            $.get('/json/show', {'url': urls}, function (data) {
                 games_div.empty();
 
                 games_div.append('<div id="count"></div>');
@@ -84,8 +84,8 @@ function prepLoadImages()
 
                 games_div.find('#count').html(game_count + ' games');
 
-                games_div.waitForImages(function() {
-                    loading_div.fadeOut(400, function() {
+                games_div.waitForImages(function () {
+                    loading_div.fadeOut(400, function () {
                         games_div.fadeIn();
                     });
                 });
@@ -94,7 +94,7 @@ function prepLoadImages()
     });
 }
 
-$(document).ready(function() {
+$(document).ready(function () {
     prepLoadImages();
     setupFields();
 });

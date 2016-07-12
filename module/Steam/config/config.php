@@ -1,11 +1,13 @@
 <?php
 
+use \GamerPowered\Steam;
+
 return [
     'controllers' => [
         'invokables' => [
-            'familysharing' => '\GamerPowered\Steam\FamilySharing\FamilySharingController',
-            'json' => '\GamerPowered\Steam\Roulette\JsonController',
-            'roulette' => '\GamerPowered\Steam\Roulette\RouletteController',
+            'familysharing' => Steam\FamilySharing\FamilySharingController::class,
+            'json' => Steam\Roulette\JsonController::class,
+            'roulette' => Steam\Roulette\RouletteController::class,
         ]
     ],
     'router' => include __DIR__ . '/router.php',

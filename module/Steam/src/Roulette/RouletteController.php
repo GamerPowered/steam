@@ -2,11 +2,8 @@
 
 namespace GamerPowered\Steam\Roulette;
 
-use JMS\Serializer\SerializerBuilder;
-use Steam\Adapter\Guzzle;
+use GamerPowered\Steam\Api\User;
 use Steam\Api\PlayerService;
-use Steam\Api\User;
-use Steam\Configuration;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
@@ -19,6 +16,28 @@ use Zend\View\Model\ViewModel;
  */
 class RouletteController extends AbstractActionController
 {
+    /**
+     * @var User $user
+     */
+    private $user;
+    
+    /**
+     * @var PlayerService $player_service
+     */
+    private $player_service;
+
+    /**
+     * RouletteController constructor.
+     * @param User $user
+     * @param PlayerService $player
+     */
+    public function __construct(User $user, PlayerService $player)
+    {
+        $this->user = $user;
+        $this->player_service = $player;
+    }
+    
+    
     public function indexAction()
     {
         $to_resolve = $this->params()->fromQuery('url');
@@ -29,12 +48,9 @@ class RouletteController extends AbstractActionController
 
         $players = [];
 
-        /** @var \GamerPowered\Steam\Api\User $user */
-        $user = $this->getServiceLocator()->get('\GamerPowered\Steam\Api\User');
-
         foreach ($to_resolve as $resolvee) {
             if (!empty($resolvee)) {
-                $player_id = $user->resolveVanityUrl($resolvee);
+                $player_id = $this->user->resolveVanityUrl($resolvee);
 
                 if (!is_null($player_id)) {
                     $players[] = $player_id;
@@ -44,9 +60,6 @@ class RouletteController extends AbstractActionController
 
         $games = [];
 
-        /** @var \Steam\Api\PlayerService $playerService */
-        $playerService = $this->getServiceLocator()->get('\GamerPowered\Steam\Api\SteamPlayer');
-
         $player_games = [];
 
         foreach ($players as $player) {
@@ -54,7 +67,7 @@ class RouletteController extends AbstractActionController
             $result = apc_fetch('player_' . $player);
 
             if (!$result) {
-                $result = $playerService->getOwnedGames($player, true);
+                $result = $this->player_service->getOwnedGames($player, true);
                 apc_store('player_' . $player, $result, 3600);
             }
 
@@ -75,7 +88,7 @@ class RouletteController extends AbstractActionController
 
         $other_games[] = $random_game;
 
-        $player_details = $user->getPlayerSummaries($players);
+        $player_details = $this->user->getPlayerSummaries($players);
 
         $played_by = [];
 

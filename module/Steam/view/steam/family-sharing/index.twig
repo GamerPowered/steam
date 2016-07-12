@@ -2,20 +2,30 @@
 <small>Because &quot;Family with benefits&quot; sounds so wrong</small>
 <form method="get" action="/familysharing" id="urls">
     <div id="inputs">
-        <input type="text" name="player1" placeholder="Enter User 1 Steam URL"{% if player1 %} value="{{ player1 }}"{% endif %}/>
-        <input type="text" name="player2" placeholder="Enter User 2 Steam URL"{% if player2 %} value="{{ player2 }}"{% endif %}/>
+        <input type="text" name="player1"
+               placeholder="Enter User 1 Steam URL"{% if player1 %} value="{{ player1 }}"{% endif %}/>
+        <input type="text" name="player2"
+               placeholder="Enter User 2 Steam URL"{% if player2 %} value="{{ player2 }}"{% endif %}/>
         <br/>
-        <input type="text" name="player1family[]" placeholder="User 1 Family Member 1"{% if player1 %} value="{{ player1family[0] }}"{% endif %}/>
-        <input type="text" name="player2family[]" placeholder="User 2 Family Member 1"{% if player1 %} value="{{ player2family[0] }}"{% endif %}/>
+        <input type="text" name="player1family[]"
+               placeholder="User 1 Family Member 1"{% if player1 %} value="{{ player1family[0] }}"{% endif %}/>
+        <input type="text" name="player2family[]"
+               placeholder="User 2 Family Member 1"{% if player1 %} value="{{ player2family[0] }}"{% endif %}/>
         <br/>
-        <input type="text" name="player1family[]" placeholder="User 1 Family Member 2"{% if player1 %} value="{{ player1family[1] }}"{% endif %}/>
-        <input type="text" name="player2family[]" placeholder="User 2 Family Member 2"{% if player1 %} value="{{ player2family[1] }}"{% endif %}/>
+        <input type="text" name="player1family[]"
+               placeholder="User 1 Family Member 2"{% if player1 %} value="{{ player1family[1] }}"{% endif %}/>
+        <input type="text" name="player2family[]"
+               placeholder="User 2 Family Member 2"{% if player1 %} value="{{ player2family[1] }}"{% endif %}/>
         <br/>
-        <input type="text" name="player1family[]" placeholder="User 1 Family Member 3"{% if player1 %} value="{{ player1family[2] }}"{% endif %}/>
-        <input type="text" name="player2family[]" placeholder="User 2 Family Member 3"{% if player1 %} value="{{ player2family[2] }}"{% endif %}/>
+        <input type="text" name="player1family[]"
+               placeholder="User 1 Family Member 3"{% if player1 %} value="{{ player1family[2] }}"{% endif %}/>
+        <input type="text" name="player2family[]"
+               placeholder="User 2 Family Member 3"{% if player1 %} value="{{ player2family[2] }}"{% endif %}/>
         <br/>
-        <input type="text" name="player1family[]" placeholder="User 1 Family Member 4"{% if player1 %} value="{{ player1family[3] }}"{% endif %}/>
-        <input type="text" name="player2family[]" placeholder="User 2 Family Member 4"{% if player1 %} value="{{ player2family[3] }}"{% endif %}/>
+        <input type="text" name="player1family[]"
+               placeholder="User 1 Family Member 4"{% if player1 %} value="{{ player1family[3] }}"{% endif %}/>
+        <input type="text" name="player2family[]"
+               placeholder="User 2 Family Member 4"{% if player1 %} value="{{ player2family[3] }}"{% endif %}/>
         {% if player1_error %}
             <span>No Steam user found for &quot;{{ player1 }}&quot;</span>
         {% endif %}
@@ -33,7 +43,8 @@
                 <div style="width: 185px; height: 70px; float: left;">
                     <a href="http://store.steampowered.com/app/{{ game.appid }}/">
                         {% if game.img_logo_url %}
-                            <img src="http://media.steampowered.com/steamcommunity/public/images/apps/{{ game.appid }}/{{ game.img_logo_url }}.jpg" width="184" height="69" />
+                            <img src="http://media.steampowered.com/steamcommunity/public/images/apps/{{ game.appid }}/{{ game.img_logo_url }}.jpg"
+                                 width="184" height="69"/>
                         {% else %}
                             {{ game.name }}
                         {% endif %}
@@ -51,7 +62,8 @@
                 <div style="width: 185px; height: 70px; float: left;">
                     <a href="http://store.steampowered.com/app/{{ game.appid }}/">
                         {% if game.img_logo_url %}
-                            <img src="http://media.steampowered.com/steamcommunity/public/images/apps/{{ game.appid }}/{{ game.img_logo_url }}.jpg" width="184" height="69" />
+                            <img src="http://media.steampowered.com/steamcommunity/public/images/apps/{{ game.appid }}/{{ game.img_logo_url }}.jpg"
+                                 width="184" height="69"/>
                         {% else %}
                             {{ game.name }}
                         {% endif %}

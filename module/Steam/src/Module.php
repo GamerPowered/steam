@@ -2,8 +2,10 @@
 
 namespace GamerPowered\Steam;
 
+use Zend\EventManager\EventManager;
 use Zend\ModuleManager\Feature\ServiceProviderInterface;
 use Zend\Mvc\MvcEvent;
+use Zend\ServiceManager\ServiceManager;
 
 /**
  * Module
@@ -38,16 +40,18 @@ class Module implements ServiceProviderInterface
     public function onBootstrap(MvcEvent $event)
     {
         $app = $event->getParam('application');
+        /** @var ServiceManager $sm */
         $sm = $app->getServiceManager();
 
+        /** @var EventManager $event_manager */
         $event_manager = $sm->get('EventManager');
-
+        
         $sharedEvents = $event_manager->getSharedManager();
 
-        $injectTemplateListener = $sm->get('\GamerPowered\Steam\Mvc\View\Http\InjectTemplateListener');
+        $injectTemplateListener = $sm->get(Mvc\View\Http\InjectTemplateListener::class);
 
         $sharedEvents->attach(
-            'Zend\Stdlib\DispatchableInterface',
+            \Zend\Stdlib\DispatchableInterface::class,
             MvcEvent::EVENT_DISPATCH,
             [
                 $injectTemplateListener,
