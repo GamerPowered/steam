@@ -1,6 +1,7 @@
 <?php
 
 namespace GamerPowered\Steam\Api;
+
 use Steam\Configuration;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
@@ -9,8 +10,8 @@ use Zend\ServiceManager\ServiceLocatorInterface;
  * ConfigFactory
  *
  * @package   GamerPowered\Steam\Api
- * @author    Protec Innovations <support@protecinnovations.co.uk>
- * @copyright 2014 Protec Innovations
+ * @author    Martin Meredith <mez@gamerpowered.co.uk>
+ * @copyright 2014 - 2016 Martin Meredith
  */
 class ConfigFactory implements FactoryInterface
 {
@@ -25,7 +26,8 @@ class ConfigFactory implements FactoryInterface
         $config = $serviceLocator->get('config')['steam'];
 
         if (is_null($config)) {
-            var_dump($serviceLocator->get('config')); die();
+            var_dump($serviceLocator->get('config'));
+            die();
         }
 
         $steam_config = new Configuration($config);

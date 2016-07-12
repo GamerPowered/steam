@@ -8,11 +8,12 @@ use Steam\Adapter\Guzzle as SteamGuzzle;
  * Guzzle
  *
  * @package   GamerPowered\Steam\Api
- * @author    Protec Innovations <support@protecinnovations.co.uk>
- * @copyright 2014 Protec Innovations
+ * @author    Martin Meredith <mez@gamerpowered.co.uk>
+ * @copyright 2014 - 2016 Martin Meredith
  */
 class Guzzle extends SteamGuzzle
 {
+    /** @noinspection PhpMissingParentConstructorInspection */
     public function __construct()
     {
         return;

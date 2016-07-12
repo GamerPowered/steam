@@ -2,14 +2,14 @@
 
 namespace GamerPowered\Steam\Api;
 
-use \Steam\Api\User as SteamUser;
+use Steam\Api\User as SteamUser;
 
 /**
  * User
  *
  * @package   GamerPowered\Steam\Api
- * @author    Protec Innovations <support@protecinnovations.co.uk>
- * @copyright 2014 Protec Innovations
+ * @author    Martin Meredith <mez@gamerpowered.co.uk>
+ * @copyright 2014 - 2016 Martin Meredith
  */
 class User
 {
@@ -62,7 +62,7 @@ class User
     {
         $players = [];
 
-        foreach($this->getSteamApi()->getPlayerSummaries($ids)['response']['players'] as $player) {
+        foreach ($this->getSteamApi()->getPlayerSummaries($ids)['response']['players'] as $player) {
             $steamid = strval($player['steamid']);
             $players[$steamid] = $player;
         }
