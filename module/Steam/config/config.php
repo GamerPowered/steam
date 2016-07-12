@@ -7,7 +7,9 @@ return [
         'invokables' => [
             'familysharing' => Steam\FamilySharing\FamilySharingController::class,
             'json' => Steam\Roulette\JsonController::class,
-            'roulette' => Steam\Roulette\RouletteController::class,
+        ],
+        'factories' => [
+            'roulette' => Steam\Roulette\RouletteControllerFactory::class,
         ]
     ],
     'router' => include __DIR__ . '/router.php',
